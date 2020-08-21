@@ -1,0 +1,167 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Consent Text Services",
+    "description": "Service which supplies text used for consent.",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://services.garmin.com"
+    }
+  ],
+  "paths": {
+    "/consentTextServices/consentText": {
+      "get": {
+        "description": "Auto generated using Swagger Inspector",
+        "summary": "Get all bike profiles for a userId or me",
+        "operationId": "getConsentText",
+        "parameters": [
+          {
+            "name": "consentTypeId",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "example": "DI_CONNECT_UPLOAD"
+          },
+          {
+            "name": "locale",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "example": "en-US"
+          },
+          {
+            "name": "X-garmin-client-id",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "TACX-TRAINING-ANDROID"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Auto generated using Swagger Inspector",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "consentTypeId": {
+                      "type": "string"
+                    },
+                    "locale": {
+                      "type": "string"
+                    },
+                    "version": {
+                      "type": "string"
+                    },
+                    "consentLinks": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "text": {
+                            "type": "string"
+                          },
+                          "url": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    },
+                    "consentCopyBlocks": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "style": {
+                            "type": "string"
+                          },
+                          "copy": {
+                            "type": "string"
+                          },
+                          "headline": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    },
+                    "headline": {
+                      "type": "string"
+                    },
+                    "description": {
+                      "type": "string"
+                    },
+                    "displayName": {
+                      "type": "string"
+                    },
+                    "grantButton": {
+                      "type": "string"
+                    },
+                    "rejectButton": {
+                      "type": "string"
+                    },
+                    "revokeHeadline": {
+                      "type": "string"
+                    },
+                    "revokeCopyBlocks": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "copy": {
+                            "type": "string"
+                          },
+                          "style": {
+                            "type": "string"
+                          },
+                          "headline": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    },
+                    "revokeLinks": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "text": {
+                            "type": "string"
+                          },
+                          "url": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    },
+                    "revokeCancelButton": {
+                      "type": "string"
+                    },
+                    "revokeConsentButton": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "servers": [
+          {
+            "url": "https://services.garmin.com"
+          }
+        ]
+      },
+      "servers": [
+        {
+          "url": "https://services.garmin.com"
+        }
+      ]
+    }
+  }
+}

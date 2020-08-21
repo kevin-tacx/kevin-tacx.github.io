@@ -1,0 +1,1264 @@
+{
+    "openapi": "3.0.1",
+    "info": {
+        "title": "User API STG v1",
+        "description": "",
+        "version": "1.0"
+    },
+    "servers": [
+        {
+            "url": "https://api-stg.tacxtraining.com/user-api/v1"
+        }
+    ],
+    "paths": {
+        "/users/{userId}/bikeprofiles": {
+            "get": {
+                "tags": [
+                    "BikeProfiles"
+                ],
+                "summary": "Get all bike profiles for a userId or me",
+                "description": "Get all bike profiles for a userId or me",
+                "operationId": "GetAllBikeProfiles",
+                "parameters": [
+                    {
+                        "name": "userId",
+                        "in": "path",
+                        "description": "Id of the user or me to retrieve the bike profiles of",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Tacx-Backend-Core-Api-Models-BikeProfileArray"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Tacx-Backend-Core-Api-Models-BikeProfileArray-1"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Tacx-Backend-Core-Api-Models-BikeProfileArray-2"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Server Error",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Tacx.Backend.Core.Api.Filters.Models.ApiError"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Tacx.Backend.Core.Api.Filters.Models.ApiError"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Tacx.Backend.Core.Api.Filters.Models.ApiError"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "BikeProfiles"
+                ],
+                "summary": "Create bike profile",
+                "description": "Create bike profile",
+                "operationId": "CreateBikeProfile",
+                "parameters": [
+                    {
+                        "name": "userId",
+                        "in": "path",
+                        "description": "Id of the user or me to create the bike profile for",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "Bike profile to create",
+                    "content": {
+                        "application/json-patch+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Tacx.Backend.Core.Api.Models.BikeProfile"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Tacx.Backend.Core.Api.Models.BikeProfile"
+                            }
+                        },
+                        "text/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Tacx.Backend.Core.Api.Models.BikeProfile"
+                            }
+                        },
+                        "application/*+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Tacx.Backend.Core.Api.Models.BikeProfile"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Success",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Tacx.Backend.Core.Api.Models.BikeProfile"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Tacx.Backend.Core.Api.Models.BikeProfile"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Tacx.Backend.Core.Api.Models.BikeProfile"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Tacx.Backend.Core.Api.Filters.Models.ApiError"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Tacx.Backend.Core.Api.Filters.Models.ApiError"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Tacx.Backend.Core.Api.Filters.Models.ApiError"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Server Error",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Tacx.Backend.Core.Api.Filters.Models.ApiError"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Tacx.Backend.Core.Api.Filters.Models.ApiError"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Tacx.Backend.Core.Api.Filters.Models.ApiError"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/users/{userId}/bikeprofiles/{bikeProfileId}": {
+            "get": {
+                "tags": [
+                    "BikeProfiles"
+                ],
+                "summary": "Get specific bike profile for the user id or me",
+                "description": "Get specific bike profile for the user id or me",
+                "operationId": "GetBikeProfileById",
+                "parameters": [
+                    {
+                        "name": "userId",
+                        "in": "path",
+                        "description": "Id of the user or me",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "bikeProfileId",
+                        "in": "path",
+                        "description": "Format - uuid. Id of the bike profile",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Tacx.Backend.Core.Api.Models.BikeProfile"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Tacx.Backend.Core.Api.Models.BikeProfile"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Tacx.Backend.Core.Api.Models.BikeProfile"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Tacx.Backend.Core.Api.Filters.Models.ApiError"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Tacx.Backend.Core.Api.Filters.Models.ApiError"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Tacx.Backend.Core.Api.Filters.Models.ApiError"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Server Error",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Tacx.Backend.Core.Api.Filters.Models.ApiError"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Tacx.Backend.Core.Api.Filters.Models.ApiError"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Tacx.Backend.Core.Api.Filters.Models.ApiError"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "BikeProfiles"
+                ],
+                "summary": "Update bike profile",
+                "description": "Update bike profile",
+                "operationId": "UpdateBikeProfile",
+                "parameters": [
+                    {
+                        "name": "userId",
+                        "in": "path",
+                        "description": "Id of the user or me to update the bike profile of",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "bikeProfileId",
+                        "in": "path",
+                        "description": "Format - uuid. Id of the bike profile to update",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "Bike profile to update",
+                    "content": {
+                        "application/json-patch+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Tacx.Backend.Core.Api.Models.BikeProfile"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Tacx.Backend.Core.Api.Models.BikeProfile"
+                            }
+                        },
+                        "text/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Tacx.Backend.Core.Api.Models.BikeProfile"
+                            }
+                        },
+                        "application/*+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Tacx.Backend.Core.Api.Models.BikeProfile"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Tacx.Backend.Core.Api.Models.BikeProfile"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Tacx.Backend.Core.Api.Models.BikeProfile"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Tacx.Backend.Core.Api.Models.BikeProfile"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Tacx.Backend.Core.Api.Filters.Models.ApiError"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Tacx.Backend.Core.Api.Filters.Models.ApiError"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Tacx.Backend.Core.Api.Filters.Models.ApiError"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Tacx.Backend.Core.Api.Filters.Models.ApiError"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Tacx.Backend.Core.Api.Filters.Models.ApiError"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Tacx.Backend.Core.Api.Filters.Models.ApiError"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Server Error",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Tacx.Backend.Core.Api.Filters.Models.ApiError"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Tacx.Backend.Core.Api.Filters.Models.ApiError"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Tacx.Backend.Core.Api.Filters.Models.ApiError"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "BikeProfiles"
+                ],
+                "summary": "Delete bike profile",
+                "description": "Delete bike profile",
+                "operationId": "DeleteBikeProfile",
+                "parameters": [
+                    {
+                        "name": "userId",
+                        "in": "path",
+                        "description": "Id of the user or me to delete the bike profile of",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "bikeProfileId",
+                        "in": "path",
+                        "description": "Format - uuid. Id of the bike profile to delete",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Success",
+                        "content": {
+                            "text/plain": {},
+                            "application/json": {},
+                            "text/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Tacx.Backend.Core.Api.Filters.Models.ApiError"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Tacx.Backend.Core.Api.Filters.Models.ApiError"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Tacx.Backend.Core.Api.Filters.Models.ApiError"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Server Error",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Tacx.Backend.Core.Api.Filters.Models.ApiError"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Tacx.Backend.Core.Api.Filters.Models.ApiError"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Tacx.Backend.Core.Api.Filters.Models.ApiError"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/users/search": {
+            "get": {
+                "tags": [
+                    "UserProfiles"
+                ],
+                "summary": "Search for user profiles based on search criteria provided via the querystring.\r\nExample: users/search?lastName=mylastname",
+                "description": "Search for user profiles based on search criteria provided via the querystring.\r\nExample: users/search?lastName=mylastname",
+                "operationId": "SearchUserProfiles",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Tacx-Backend-Core-Api-Models-UserProfileArray"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Tacx-Backend-Core-Api-Models-UserProfileArray-1"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Tacx-Backend-Core-Api-Models-UserProfileArray-2"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Server Error",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Tacx.Backend.Core.Api.Filters.Models.ApiError"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Tacx.Backend.Core.Api.Filters.Models.ApiError"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Tacx.Backend.Core.Api.Filters.Models.ApiError"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/users/userprofiles/{userProfileId}": {
+            "get": {
+                "tags": [
+                    "UserProfiles"
+                ],
+                "summary": "Gets user profile by userProfileId",
+                "description": "Gets user profile by userProfileId",
+                "operationId": "GetUserProfileById",
+                "parameters": [
+                    {
+                        "name": "userProfileId",
+                        "in": "path",
+                        "description": "Format - uuid. Id of the user profile",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Tacx.Backend.Core.Api.Models.UserProfile"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Tacx.Backend.Core.Api.Models.UserProfile"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Tacx.Backend.Core.Api.Models.UserProfile"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Tacx.Backend.Core.Api.Filters.Models.ApiError"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Tacx.Backend.Core.Api.Filters.Models.ApiError"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Tacx.Backend.Core.Api.Filters.Models.ApiError"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Server Error",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Tacx.Backend.Core.Api.Filters.Models.ApiError"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Tacx.Backend.Core.Api.Filters.Models.ApiError"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Tacx.Backend.Core.Api.Filters.Models.ApiError"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/users/{userId}/userprofiles": {
+            "get": {
+                "tags": [
+                    "UserProfiles"
+                ],
+                "summary": "Gets user profile by userId or me",
+                "description": "Gets user profile by userId or me",
+                "operationId": "GetUserProfileByUserId",
+                "parameters": [
+                    {
+                        "name": "userId",
+                        "in": "path",
+                        "description": "Id of the user or me to retrieve the user profile of",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Tacx.Backend.Core.Api.Models.UserProfile"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Tacx.Backend.Core.Api.Models.UserProfile"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Tacx.Backend.Core.Api.Models.UserProfile"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Tacx.Backend.Core.Api.Filters.Models.ApiError"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Tacx.Backend.Core.Api.Filters.Models.ApiError"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Tacx.Backend.Core.Api.Filters.Models.ApiError"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Server Error",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Tacx.Backend.Core.Api.Filters.Models.ApiError"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Tacx.Backend.Core.Api.Filters.Models.ApiError"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Tacx.Backend.Core.Api.Filters.Models.ApiError"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "UserProfiles"
+                ],
+                "summary": "Update user profile",
+                "description": "Update user profile",
+                "operationId": "UpdateUserProfile",
+                "parameters": [
+                    {
+                        "name": "userId",
+                        "in": "path",
+                        "description": "UserId to update the profile of",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "User profile to update",
+                    "content": {
+                        "application/json-patch+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Tacx.Backend.Core.Api.Models.UserProfile"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Tacx.Backend.Core.Api.Models.UserProfile"
+                            }
+                        },
+                        "text/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Tacx.Backend.Core.Api.Models.UserProfile"
+                            }
+                        },
+                        "application/*+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Tacx.Backend.Core.Api.Models.UserProfile"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Tacx.Backend.Core.Api.Models.UserProfile"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Tacx.Backend.Core.Api.Models.UserProfile"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Tacx.Backend.Core.Api.Models.UserProfile"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Tacx.Backend.Core.Api.Filters.Models.ApiError"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Tacx.Backend.Core.Api.Filters.Models.ApiError"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Tacx.Backend.Core.Api.Filters.Models.ApiError"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Tacx.Backend.Core.Api.Filters.Models.ApiError"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Tacx.Backend.Core.Api.Filters.Models.ApiError"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Tacx.Backend.Core.Api.Filters.Models.ApiError"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Server Error",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Tacx.Backend.Core.Api.Filters.Models.ApiError"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Tacx.Backend.Core.Api.Filters.Models.ApiError"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Tacx.Backend.Core.Api.Filters.Models.ApiError"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "UserProfiles"
+                ],
+                "summary": "Delete user profile",
+                "description": "Delete user profile",
+                "operationId": "DeleteUserProfile",
+                "parameters": [
+                    {
+                        "name": "userId",
+                        "in": "path",
+                        "description": "UserId to delete the user profile of",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Success",
+                        "content": {
+                            "text/plain": {},
+                            "application/json": {},
+                            "text/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Tacx.Backend.Core.Api.Filters.Models.ApiError"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Tacx.Backend.Core.Api.Filters.Models.ApiError"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Tacx.Backend.Core.Api.Filters.Models.ApiError"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Server Error",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Tacx.Backend.Core.Api.Filters.Models.ApiError"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Tacx.Backend.Core.Api.Filters.Models.ApiError"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Tacx.Backend.Core.Api.Filters.Models.ApiError"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/users/userprofiles": {
+            "post": {
+                "tags": [
+                    "UserProfiles"
+                ],
+                "summary": "Create user profile",
+                "description": "Create user profile",
+                "operationId": "CreateUserProfile",
+                "requestBody": {
+                    "description": "User profile to create",
+                    "content": {
+                        "application/json-patch+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Tacx.Backend.Core.Api.Models.UserProfile"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Tacx.Backend.Core.Api.Models.UserProfile"
+                            }
+                        },
+                        "text/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Tacx.Backend.Core.Api.Models.UserProfile"
+                            }
+                        },
+                        "application/*+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Tacx.Backend.Core.Api.Models.UserProfile"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Success",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Tacx.Backend.Core.Api.Models.UserProfile"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Tacx.Backend.Core.Api.Models.UserProfile"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Tacx.Backend.Core.Api.Models.UserProfile"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Tacx.Backend.Core.Api.Filters.Models.ApiError"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Tacx.Backend.Core.Api.Filters.Models.ApiError"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Tacx.Backend.Core.Api.Filters.Models.ApiError"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Server Error",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Tacx.Backend.Core.Api.Filters.Models.ApiError"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Tacx.Backend.Core.Api.Filters.Models.ApiError"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Tacx.Backend.Core.Api.Filters.Models.ApiError"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "Tacx.Backend.Core.Api.Models.BikeProfile": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string"
+                    },
+                    "bikeWeight": {
+                        "type": "number",
+                        "format": "double"
+                    },
+                    "airResistanceCoefficient": {
+                        "type": "number",
+                        "format": "double"
+                    },
+                    "projectedFrontalSurfaceInM2": {
+                        "type": "number",
+                        "format": "double"
+                    },
+                    "tyreCircumferenceInMeters": {
+                        "type": "number",
+                        "format": "double"
+                    },
+                    "tyreRollingResistance": {
+                        "type": "number",
+                        "format": "double"
+                    },
+                    "isActive": {
+                        "type": "boolean"
+                    },
+                    "isSystemResource": {
+                        "type": "boolean"
+                    },
+                    "id": {
+                        "type": "string",
+                        "format": "uuid"
+                    }
+                }
+            },
+            "Tacx.Backend.Core.Api.Filters.Models.ApiError": {
+                "type": "object",
+                "properties": {
+                    "statusCode": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "errorMessage": {
+                        "type": "string"
+                    },
+                    "errorDetails": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    }
+                }
+            },
+            "Tacx.Backend.Core.Api.Models.Enums.Gender": {
+                "enum": [
+                    "Unspecified",
+                    "Male",
+                    "Female",
+                    "Other"
+                ],
+                "type": "string"
+            },
+            "Tacx.Backend.Core.Api.Models.Enums.MeasurementUnitType": {
+                "enum": [
+                    "Metric",
+                    "Imperial"
+                ],
+                "type": "string"
+            },
+            "Tacx.Backend.Core.Api.Models.Enums.ProfileVisibility": {
+                "enum": [
+                    "Private",
+                    "Protected",
+                    "Public"
+                ],
+                "type": "string"
+            },
+            "Tacx.Backend.Core.Api.Models.UserSettings": {
+                "type": "object",
+                "properties": {
+                    "displayUoM": {
+                        "$ref": "#/components/schemas/Tacx.Backend.Core.Api.Models.Enums.MeasurementUnitType"
+                    },
+                    "emailTcxForScore": {
+                        "type": "boolean"
+                    },
+                    "profileVisibility": {
+                        "$ref": "#/components/schemas/Tacx.Backend.Core.Api.Models.Enums.ProfileVisibility"
+                    },
+                    "preferredLanguages": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    }
+                }
+            },
+            "Tacx.Backend.Core.Api.Models.HeartRate": {
+                "type": "object",
+                "properties": {
+                    "rest": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "max": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "threshold": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "zone1": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "zone2": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "zone3": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "zone4": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "zone5": {
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                }
+            },
+            "Tacx.Backend.Core.Api.Models.UserProfile": {
+                "type": "object",
+                "properties": {
+                    "userId": {
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "dateOfBirth": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "emailAddress": {
+                        "type": "string",
+                        "format": "email"
+                    },
+                    "firstName": {
+                        "type": "string"
+                    },
+                    "lastName": {
+                        "type": "string"
+                    },
+                    "phoneNumber": {
+                        "type": "string"
+                    },
+                    "gender": {
+                        "$ref": "#/components/schemas/Tacx.Backend.Core.Api.Models.Enums.Gender"
+                    },
+                    "weightInKg": {
+                        "type": "number",
+                        "format": "double"
+                    },
+                    "functionalThresholdPower": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "imageUrl": {
+                        "type": "string"
+                    },
+                    "lastCheckedInDate": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "registrationDate": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "unregistrationDate": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "userSettings": {
+                        "$ref": "#/components/schemas/Tacx.Backend.Core.Api.Models.UserSettings"
+                    },
+                    "bikeProfiles": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Tacx.Backend.Core.Api.Models.BikeProfile"
+                        }
+                    },
+                    "heartRate": {
+                        "$ref": "#/components/schemas/Tacx.Backend.Core.Api.Models.HeartRate"
+                    },
+                    "id": {
+                        "type": "string",
+                        "format": "uuid"
+                    }
+                }
+            },
+            "Tacx-Backend-Core-Api-Models-BikeProfileArray": {
+                "type": "array",
+                "items": {
+                    "$ref": "#/components/schemas/Tacx.Backend.Core.Api.Models.BikeProfile"
+                }
+            },
+            "Tacx-Backend-Core-Api-Models-BikeProfileArray-1": {
+                "type": "array",
+                "items": {
+                    "$ref": "#/components/schemas/Tacx.Backend.Core.Api.Models.BikeProfile"
+                }
+            },
+            "Tacx-Backend-Core-Api-Models-BikeProfileArray-2": {
+                "type": "array",
+                "items": {
+                    "$ref": "#/components/schemas/Tacx.Backend.Core.Api.Models.BikeProfile"
+                }
+            },
+            "Tacx-Backend-Core-Api-Models-UserProfileArray": {
+                "type": "array",
+                "items": {
+                    "$ref": "#/components/schemas/Tacx.Backend.Core.Api.Models.UserProfile"
+                }
+            },
+            "Tacx-Backend-Core-Api-Models-UserProfileArray-1": {
+                "type": "array",
+                "items": {
+                    "$ref": "#/components/schemas/Tacx.Backend.Core.Api.Models.UserProfile"
+                }
+            },
+            "Tacx-Backend-Core-Api-Models-UserProfileArray-2": {
+                "type": "array",
+                "items": {
+                    "$ref": "#/components/schemas/Tacx.Backend.Core.Api.Models.UserProfile"
+                }
+            }
+        },
+        "securitySchemes": {
+            "apiKeyHeader": {
+                "type": "apiKey",
+                "name": "AppKey",
+                "in": "header"
+            },
+            "apiKeyQuery": {
+                "type": "apiKey",
+                "name": "AppKey",
+                "in": "query"
+            }
+        }
+    },
+    "security": [
+        {
+            "apiKeyHeader": []
+        },
+        {
+            "apiKeyQuery": []
+        }
+    ]
+}
